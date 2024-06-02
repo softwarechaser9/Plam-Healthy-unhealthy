@@ -1,0 +1,173 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Signup Page</title>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+      <style>
+         .custom-input {
+         border: 1px solid #e0e0e0;
+         padding: 10px 29px;
+         font-size: 16px;
+         line-height: 1.63;
+         color: #9e9fa1;
+         font-weight: 400;
+         }
+         .error-message {
+            font-size: 12px;
+            color: red;
+        }
+        
+      </style>
+   </head>
+   <body>
+      <!-- Navbar -->
+      <div class="container mt-3 ">
+         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container-fluid">
+               <!-- logo -->
+               <a class="navbar-brand" href="{%url 'logo_redirect'%}" >
+               <img src={%static "Images/logo1.png"%} width="40" height="40" class="d-inline-block align-top" alt="Logo">
+               </a>
+               <!-- collapse button for small devices -->
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                     <li class="nav-item">
+                        <a class="nav-link active fw-bold" aria-current="page" href="{% url 'index'%}">Home</a>
+                     </li>
+                  </ul>
+                  <!-- Login and Sign Up -->
+                  <!-- For Large Device -->
+                  <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-none d-lg-block">
+                     <a href="{% url 'login_page'%}" class="text-decoration-none">
+                     <button type="button" class="btn  mx-4 btn-success">Login</button>
+                     </a>
+                     <a href="{% url 'signup_page'%}">
+                     <button type="button" class="btn btn-success mx">Sign up</button>
+                     </a>
+                  </ul>
+                  <!-- For small -->
+                  <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-block d-lg-none">
+                     <a href="{% url 'login_page'%}" class="nav-link active fw-bold">Login</a>
+                     <a href="#" class="nav-link active fw-bold">Sign Up</a>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </div>
+      <!-- body part -->
+      <div class="container mt-2 ">
+         <div class="row ">
+            <div class="col-md-5  offset-lg-1">
+               <div class="p-4  ">
+                  <h3 class="fw-bold mb-4">Sign up</h3>
+
+                  
+                 
+                  <form action='/signup/' method="POST">
+                    {% csrf_token %}
+        
+
+
+                    <div class="mb-2">
+                        <label for="text" class="form-label fw-bold">Username<span class="text-danger">*</span></label>
+                    <input  class="form-control custom-input" type="text" placeholder="Username" id="username" name="username" {% if errors.username %}class="error"{% endif %} value="{{ request.POST.username }}" required>
+                    {% if errors.username %}
+                        <div class="error-message">{{ errors.username }}</div>
+                    {% endif %}
+                    </div>
+                   
+
+                    <div class="mb-2">
+                        <label for="firstname" class="form-label fw-bold">First Name<span class="text-danger">*</span></label>
+                    <input class="form-control custom-input" type="text" placeholder="First Name" id="fname" name="fname" {% if errors.fname %}class="error"{% endif %} value="{{ request.POST.fname }}" required>
+                    {% if errors.fname %}
+                        <div class="error-message">{{ errors.fname }}</div>
+                    {% endif %}
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="lastname" class="form-label fw-bold">Last Name<span class="text-danger">*</span></label>
+                    <input class="form-control custom-input" type="text" placeholder="Last Name" id="lname" name="lname" {% if errors.lname %}class="error"{% endif %} value="{{ request.POST.lname }}" required>
+                    {% if errors.lname %}
+                        <div class="error-message">{{ errors.lname }}</div>
+                    {% endif %}
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="email" class="form-label fw-bold">Email<span class="text-danger">*</span></label>
+                    <input class="form-control custom-input" type="email" placeholder="E-mail" id="email" name="email" {% if errors.email %}class="error"{% endif %} value="{{ request.POST.email }}" required>
+                    {% if errors.email %}
+                        <div class="error-message">{{ errors.email }}</div>
+                    {% endif %}
+
+                    </div>
+
+
+                    <div class="mb-2">
+                        <label for="password" class="form-label fw-bold">Password<span class="text-danger">*</span></label>
+                    <input class="form-control custom-input" type="password" placeholder="Choose your password" id="pass1" name="pass1" {% if errors.password %}class="error"{% endif %} required>
+                    {% if errors.pass1 %}
+                        <div class="error-message">{{ errors.pass1 }}</div>
+                    {% endif %}
+
+                    </div>
+                    
+                    <div class="mb-2">
+                        <label for="password" class="form-label fw-bold">Confirm Password<span class="text-danger">*</span></label>
+                    <input class="form-control custom-input" type="password" placeholder="Enter your password again" id="pass2" name="pass2" {% if errors.password %}class="error"{% endif %} required>
+                    
+                    
+                    {% if errors.pass2 %}
+                        <div class="error-message">{{ errors.pass2 }}</div>
+                    {% endif %}
+                    </div>
+        
+                    {% comment %} <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="6LdWM_QkAAAAALH0nuBvk8aXRH8zL-2voqJcQcrI"></div>
+                        {% if errors.recaptcha %}
+                            <div class="error-message">{{ errors.recaptcha }}</div>
+                        {% endif %}
+                    </div> {% endcomment %}
+                    <button type="submit" class="btn btn-success btn-primary btn-lg">Submit</button>
+                </form>
+
+
+
+
+
+
+
+
+                  <p class="mt-4">
+                     Already hava an account? <a href="{% url 'login_page'%}" class="font-weight-bold"> Login</a>
+                  </p>
+               </div>
+            </div>
+            <div class="col-md-5">
+               <img src={%static "/Images/signup.png"%} class="d-block mx-lg-auto img-fluid" alt="Login Img" loading="lazy">
+            </div>
+         </div>
+      </div>
+      {% include 'footer.html' %}
+      <!-- Bootstrap JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+  
+  
+  
+  
+  
+      
+
+
+
+
+   </body>
+</html>
+

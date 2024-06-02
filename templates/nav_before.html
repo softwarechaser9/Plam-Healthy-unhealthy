@@ -1,0 +1,65 @@
+{% load static %}
+{% block nav_before%}
+
+
+<div class="container mt-3 ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <div class="container-fluid">
+
+            <!-- logo -->
+            <a class="navbar-brand" href="{%url 'logo_redirect'%}" >
+                <img src={%static "Images/logo1.png"%} width="40" height="40" class="d-inline-block align-top" alt="Logo">
+            </a>
+
+            <!-- collapse button for small devices -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" aria-current="page" href="{% url 'index'%}">Home</a>
+                    </li>
+                    
+                   
+                </ul>
+             
+
+                <!-- Login and Sign Up -->
+                <!-- For Large Device -->
+                <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-none d-lg-block">
+                    <a href="{% url 'login_page'%}" class="text-decoration-none">
+                        <button type="button" class="btn  mx-4 btn-success">Login</button>
+                    </a>
+                    <a href="{% url 'signup_page'%}">
+                        <button type="button" class="btn btn-success mx">Sign up</button>
+                    </a>
+                    
+
+                </ul>
+                
+
+
+                <!-- For small -->
+                <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-block d-lg-none">
+                    <a href="{% url 'login_page'%}" class="nav-link active fw-bold">Login</a>
+
+                    <a href="{% url 'signup_page'%}" class="nav-link active fw-bold">Sign Up</a>
+
+                </ul>
+
+
+            </div>
+
+
+        </div>
+    </nav>
+
+
+</div>
+
+
+
+{% endblock%}

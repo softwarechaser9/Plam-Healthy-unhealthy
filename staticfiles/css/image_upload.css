@@ -1,0 +1,61 @@
+.dropzone {
+
+    border: 2px dashed #0ab25e;
+    height: auto;
+    width: auto;
+    min-height: 400px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+.dropzone img {
+    height: 75%;
+    width: 75%;
+    object-fit: cover;
+    border-radius: 5px;
+
+
+
+}
+
+.file-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #079c4a;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin-top: 20px;
+
+}
+
+.file-btn input[type=file] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.delete-icon {
+    display: inline-block;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-icon::after {
+    content: 'Remove';
+    font-size: 1.2em;
+    line-height: 1em;
+    display: block;
+    margin-top: -0.1em;
+}

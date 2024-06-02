@@ -1,0 +1,342 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta
+        name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500&display=swap" rel="stylesheet">
+
+        	
+
+
+        <title>Identification of Plant Disease</title>
+
+
+        <style>
+            body {
+                font-family: 'DM Sans', sans-serif;
+            }
+
+            footer{
+                background-image: url(/Images/footer.svg); 
+                height: 300px;
+                /* margin-top: 70px; */
+
+          }
+          
+        </style>
+
+        
+       
+
+
+
+
+    </head>
+
+    <body>
+
+
+ <!-- hero bg start -->
+ <div style="background-image: url({% static '/Images/hero-bg.png' %})">
+
+        <!-- Navbar -->
+        <div class="container mt-3 p-3">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <div class="container-fluid">
+
+                    <!-- logo -->
+                    <a class="navbar-brand" href="{% url 'index'%}">
+                        <img src={%static "Images/logo1.png"%} width="40" height="40" class="d-inline-block align-top" alt="Logo">
+                    </a>
+
+                    <!-- collapse button for small devices -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                            {% comment %} <li class="nav-item">
+                                <a class="nav-link active fw-bold" aria-current="page" href="index.html">Home</a>
+                            </li> {% endcomment %}
+                            <li class="nav-item">
+                                <a class="nav-link active fw-bold" href="#feature">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active fw-bold" href="#about">About US</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active fw-bold" href="#testimonial">Testimonials</a>
+                            </li>
+                            
+
+
+                        </ul>
+
+                        <!-- Login and Sign Up -->
+                        <!-- For Large Device -->
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-none d-lg-block">
+                            <a href="{% url 'login_page'%}" class="text-decoration-none">
+                                <button type="button" class="btn  mx-4 btn-success">Login</button>
+                            </a>
+                            <a href="{% url 'signup_page'%}">
+                                <button type="button" class="btn btn-success mx">Sign up</button>
+                            </a>
+                            
+
+                        </ul>
+                        
+
+
+                        <!-- For small -->
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-block d-lg-none">
+                            <a href="{% url 'login_page'%}" class="nav-link active fw-bold">Login</a>
+
+                            <a href="{% url 'signup_page'%}" class="nav-link active fw-bold">Sign Up</a>
+
+                        </ul>
+
+
+                    </div>
+
+
+                </div>
+            </nav>
+
+
+        </div>
+
+        
+
+        <div class="d-none d-lg-block" style="margin: 40px;"></div>
+        <!-- Hero Content -->
+        <section id="home" class="py-9">
+        <div class="container">
+            <div class="row align-items-center">
+
+
+                <div class="col-lg-6">
+                    <h1 class="mb-4">Identify Oil Palm Health Status With Ease</h1>
+                    <p class="lead mb-4">Our AI-powered platform can accurately identify Oil Palm health status based on images of the affected oil palms. Simply upload an image and get a diagnosis in seconds.</p>
+                    <a href={% url 'signup_page'%} class="btn btn-primary btn-lg btn-success">Get started</a>
+                </div>
+
+                <div class="col-lg-6 my-4 ">
+                    <img src={%static "/Images/hero_image1.png"%} class="d-block mx-lg-auto img-fluid" alt="Hero Image" width="700" height="500" loading="lazy">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<div class="d-none d-lg-block" style="margin: 190px;">
+
+</div>
+
+
+        
+<!-- hero-bg-end -->
+        </div>
+
+
+
+
+
+
+        <section id="feature" class="py-5 bg-light" >
+            <div class="container">
+                <div class="row mb-5">
+                    
+                    <div class="col-md-6 pt-5">
+                        <h2 class="fw-bold mb-4">Our Features</h2>
+                        {% comment %} <p class="lead mb-4">Our platform not only identifies plant diseases, but also provides personalized recommendations for treatment based on your specific situation. Whether you're an experienced gardener or a beginner, our recommendations will help you keep your plants healthy and thriving.</p> {% endcomment %}
+                        <ul class="lead mb-4">
+                            
+                            <li><p class="fw-bold">Easy Image upload</p>You can easily upload drone images of oil palm using our "choose image" or "drag and drop" options, or take a picture using your device's camera.</li>
+    
+                            <li><p class="fw-bold">Accurate healths status detection</p>Our advanced algorithms can accurately detect a healthy and unhealthy oil palms, helping you to identify  them quickly.</li>
+    
+                           {% comment %} <li><p class="fw-bold">Treatment recommendations</p>Our system provides detailed treatment recommendations based on the type of disease detected, along with instructions on how to use them effectively.</li> {% endcomment %}
+    
+                            <li><p class="fw-bold">User-friendly interface</p>Our system is designed with a user-friendly interface that is easy to use, even for those who may not be familiar with oil palm health status.</li>
+    
+                            
+                          
+                        
+                        </ul>  
+                          
+                    </div>
+    
+                    <div class="col-md-6">
+                        <img src={%static "/Images/feature.png"%} class="img-fluid m-1" alt="Example of plant disease identification tool">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        {% comment %} <section id="" > {% endcomment %}
+            {% comment %} <div class="container"> {% endcomment %}
+                {% comment %} <div class="row mb-5"> {% endcomment %}
+                    {% comment %} <div class="col-md-6"> {% endcomment %}
+                        {% comment %} <img src={%static "/Images/capsul.jpeg"%} class="img-fluid m-1" alt="Example of plant disease identification tool"> {% endcomment %}
+                    {% comment %} </div> {% endcomment %}
+                    {% comment %} <div class="col-md-6 pt-5"> {% endcomment %}
+                        {% comment %} <h2 class="fw-bold mb-4">Get personalized recommendations for treatment</h2> {% endcomment %}
+                        {% comment %} <p class="lead mb-4">Our platform not only identifies plant diseases, but also provides personalized recommendations for treatment based on your specific situation. Whether you're an experienced gardener or a beginner, our recommendations will help you keep your plants healthy and thriving.</p> {% endcomment %}
+                    {% comment %} </div> {% endcomment %}
+                {% comment %} </div> {% endcomment %}
+            {% comment %} </div> {% endcomment %}
+        {% comment %} </section> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Features section -->
+        <!-- Why choose -->
+        <section id="why"  class="py-5 bg-light">
+
+            <div class="container">
+                <h2 class="text-center mb-5">Why choose our Oil Palm health status identification tool?</h2>
+
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body text-center">
+                                <i class="fas fa-leaf mb-3 fa-3x"></i>
+                                <h4 class="card-title mb-3">Easy to Use</h4>
+                                <p class="card-text">Our platform is designed to be user-friendly, making it easy for anyone to identify and diagnose Oil Palm health status.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body text-center">
+                                <i class="fas fa-search mb-3 fa-3x"></i>
+                                <h4 class="card-title mb-3">Accurate Results</h4>
+                                <p class="card-text">Our advanced algorithms provide accurate results, ensuring that you receive the correct diagnosis for your oil palms.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body text-center">
+                                <i class="fas fa-shield-alt mb-3 fa-3x"></i>
+                                <h4 class="card-title mb-3">Secure and Private</h4>
+                                <p class="card-text">Your data is safe with us. We take your privacy seriously and ensure that all information is kept secure and confidential.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About section -->
+        <section id="about" class="py-5">
+            <div class="container">
+                <div class="row">
+                    <h2 class="text-center mb-5">About Us</h2>
+                    <div class="col-md-6 ">
+                        
+                        <p class="lead">We are a team of passionate plant enthusiasts who understand the importance of keeping oil palms healthy. Our platform is designed to help people identify and diagnose Oil Palm health conditions quickly and accurately, so that they can take the necessary steps to protect their oil palms.</p>
+                        <p class="lead">Our mission is to promote oil palm health and help people all over the world keep their oil palm thriving.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src={%static "/Images/about-us.svg"%} alt="About" class="img-fluid rounded-circle mb-3">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials section -->
+        <section class="bg-light py-5" id="testimonial">
+            <div class="container">
+                <h2 class="text-center mb-5">What our users say ?</h2>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">"I used this website to diagnose my oil palm plantation and it was spot on! Thanks for saving my harvest."</p>
+                                <p class="card-text">
+                                    <small class="text-muted">- John, Oil Palm Plantation Owner</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">"This website is amazing! It helped me identify a health condition on oil palm trees that I had no idea how to treat. Highly recommended."</p>
+                                <p class="card-text">
+                                    <small class="text-muted">- Sarah, oil palm enthusiast</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">"I love how fast and easy this website is to use. I was able to diagnose my oil palm in less than 1 hour"</p>
+                                <p class="card-text">
+                                    <small class="text-muted">- David, hobby gardener</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="m-5 p-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 mx-auto text-center">
+                        <h2>Join Thousands of Satisfied Users Today</h2>
+                        <p class="lead">Sign up now for a free use and see how our AI-powered tool can help you diagnose and cure your oil pam trees faster and easier than ever before.</p>
+                        <a href={% url 'signup_page'%} class="btn btn-success btn-lg">Get Started Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+   
+        {% include 'footer.html' %}
+ 
+
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+
+</html>
+
